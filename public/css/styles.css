@@ -1,0 +1,742 @@
+/* Add at the top of your CSS file */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Adjust scroll offset for fixed header */
+#services, #barbers, #collections, #pricing{
+    scroll-margin-top: 80px; /* Adjust this value based on your header height */
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #292D33;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Header Styles */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: transparent;
+}
+
+.logo {
+    font-family: 'MedievalSharp', cursive;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 500;
+    color: white;
+    line-height: 1;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    width: auto;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: clamp(1rem, 2vw, 2rem);
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item a {
+    color: white;
+    text-decoration: none;
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    font-weight: 700;
+    transition: color 0.3s;
+    padding: 0.5rem 0;
+}
+
+
+/* User Section */
+.user-section {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 1rem;
+    padding-right: 0%;
+    cursor: pointer;
+}
+
+.user-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #555;
+    padding: 2px;
+}
+
+.user-name {
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+/* Hero Section Styles */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    background-image: url('/images/home_bg.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 2rem;
+    padding-top: 80px; /* Add space for fixed header */
+}
+
+.hero-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    color: white;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 3rem;
+    max-width: 800px;
+}
+
+
+
+.cta-button {
+    background: #FFF202;
+    color: black;
+    border: none;
+    padding: 20px 40px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-top: 30px;
+    border-radius: 30px;
+}
+
+.cta-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.hero-auth {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.auth-text {
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: 700;
+    color: white;
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+/* Move existing styles from footer to hero */
+.register-link, .login-link {
+    color: #0268E8;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.register-link:hover, .login-link:hover {
+    color: #FFF202;
+}
+
+.login-text {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+/* Section Common Styles */
+section {
+    padding: 4rem 2rem;
+}
+
+.section-title {
+    text-align: center;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: white;
+}
+
+/* Collection Gallery Styles */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    background: #D9D9D9;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    position: relative;
+    aspect-ratio: 2/3; /* Match services section aspect ratio */
+}
+
+.gallery-item:hover {
+    transform: translateY(-10px);
+}
+
+.image-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Keep existing item-title styles */
+.item-title {
+    color: black;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-weight: 700;
+    text-align: center;
+    padding: 1.5rem 0;
+    line-height: 1.4;
+    background: #D9D9D9;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Services Section Styles */
+.services-section {
+    background-color: #9D9570;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.service-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    aspect-ratio: 2/3; /* Tetapkan rasio aspek */
+}
+
+.service-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This ensures image covers the entire container */
+    display: block;
+    transition: transform 0.3s;
+}
+
+.service-card:hover img {
+    transform: scale(1.05);
+}
+
+.service-label {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #393939;
+    color: #D9D9D9;
+    padding: 0.5rem 1rem;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 300;
+    border-radius: 5px;
+    width: 80%;
+    text-align: center;
+}
+
+/* Pricing Section Styles */
+.pricing-section {
+    background-color: #9D9570;
+}
+.price-list {
+    max-width: 800px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.price-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #D9D9D9;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+
+.service-name {
+    color: black;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    font-weight: 800;
+}
+
+.service-price {
+    color: black;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-weight: 800;
+}
+
+/* Banner Section Styles */
+.banner {
+    position: relative;
+    max-width: 2000px;
+    height: 511px;
+    background-color: #212121;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.banner .rectangle {
+    position: absolute;
+    width: 567px;
+    height: 512px;
+    top: -1px;
+    right: 0;
+    object-fit: cover;
+}
+
+.banner .text {
+    position: absolute;
+    width: 700px;
+    top: 50%;
+    left: 139px;
+    transform: translateY(-50%);
+}
+
+.banner .text-wrapper {
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    color: #ffffff;
+    font-size: 70px;
+    letter-spacing: 3.50px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.banner .description {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.banner .button {
+    display: inline-block;
+    width: 308px;
+    height: 57px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.banner .button:hover {
+    background-color: #f0f0f0;
+}
+
+.banner .text-wrapper-2 {
+    display: inline-block;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    color: #292d33;
+    font-size: 20px;
+    line-height: 57px;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #9D9570;
+    padding: 60px 20px;
+    color: #000000;
+}
+
+.footer .text {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.footer .text-wrapper {
+    font-size: clamp(2rem, 5vw, 3.125rem);
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    margin-bottom: 1rem;
+}
+
+.footer .description {
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+.footer .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.footer .card {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.footer .card-icon {
+    width: 2rem;
+    height: 2rem;
+    margin-bottom: 1rem;
+}
+
+.footer .card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.footer .card-text {
+    font-size: 1.063rem;
+    line-height: 1.5;
+}
+
+.footer .card-text a {
+    color: #000000;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer .card-text a:hover {
+    color: #292D33;
+}
+
+.footer .divider {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    max-width: 1060px;
+    margin: 0 auto 2rem;
+}
+
+.footer .copyright {
+    text-align: center;
+    font-size: 1.063rem;
+}
+
+/* About Page Styles */
+.about {
+    min-height: 100vh;
+    background-image: url('/images/about_bg.jpeg');
+    background-size: cover;
+    padding-top: 80px; /* For fixed header */
+}
+
+.overlap-group-wrapper {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.overlap-group {
+    position: relative;
+    width: 100%;
+    padding: 4rem 8rem;
+    color: #ffffff;
+}
+
+.selamat-datang-di-EL {
+    max-width: 1250px;
+    margin: 0 auto;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.6;
+}
+
+.selamat-datang-di-EL h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.selamat-datang-di-EL h3 {
+    font-size: 2rem;
+    margin: 2rem 0;
+    font-weight: 600;
+}
+
+.selamat-datang-di-EL p {
+    margin-bottom: 1.5rem;
+}
+
+.selamat-datang-di-EL ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 2rem;
+}
+
+.selamat-datang-di-EL li {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+    position: relative;
+}
+
+.selamat-datang-di-EL li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #ffffff;
+}
+
+.text-wrapper {
+    font-family: "MedievalSharp", cursive;
+    font-size: 6rem;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+@media (max-width: 1024px) {
+    .banner {
+        height: auto;
+        padding: 40px 20px;
+    }
+
+    .banner .rectangle {
+        position: static;
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .banner .text {
+        position: static;
+        width: 100%;
+        transform: none;
+    }
+
+    .banner .text-wrapper {
+        font-size: 48px;
+    }
+
+    .banner .button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner .text-wrapper {
+        font-size: 36px;
+    }
+    
+    .banner .description {
+        font-size: 14px;
+    }
+
+    .footer {
+        padding: 40px 20px;
+    }
+    
+    .footer .cards {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .footer .card {
+        padding: 1rem;
+    }
+
+    .overlap-group {
+        padding: 2rem 1rem;
+    }
+
+    .text-wrapper {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+    }
+
+    .selamat-datang-di-EL {
+        font-size: 1.125rem;
+    }
+
+    .selamat-datang-di-EL h2 {
+        font-size: 2rem;
+    }
+
+    .selamat-datang-di-EL h3 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .hero-text {
+        font-size: 1.2rem;
+    }
+    .nav-item a {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .header {
+        padding: 0.75rem 1rem;
+    }
+    .user-name {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        padding: 20px;
+        flex-wrap: wrap;
+    }
+    .logo {
+        margin-bottom: 20px;
+        order: 1;
+        flex: 1;
+    }
+    .nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        margin-top: 0.5rem;
+    }
+    .user-section {
+        order: 2;
+    }
+    .nav-list {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+    .hero {
+        padding: 80px 20px;
+        background-attachment: scroll; /* Better mobile performance */
+    }
+    .hero-title {
+        font-size: 2rem;
+    }
+    .hero-text {
+        font-size: 1rem;
+    }
+    .cta-button {
+        font-size: 1.2rem;
+        padding: 15px 30px;
+    }
+    .footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+        padding: 15px 5px;
+    }
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .services-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.5rem;
+    }
+    .hero-text {
+        font-size: 0.9rem;
+    }
+    .cta-button {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+    .footer-text, .register-link, .login-link, .login-text {
+        font-size: 1rem;
+    }
+    .price-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    .nav-list {
+        gap: 0.5rem;
+    }
+    .user-image {
+        width: 32px;
+        height: 32px;
+    }
+    section {
+        padding: 2rem 0.5rem;
+    }
+}
