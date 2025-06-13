@@ -95,9 +95,9 @@ Database terdiri dari beberapa tabel utama:
 - CRUD /api/admin/users
 
 ## Kontributor
-- Danu Prasetya(23091397061)
-- Ariel Pramudya(23091397069)
-- Andhika Abdillah(23091397046)
+- Danu Prasetya (23091397061)
+- Ariel Pramudya Risky Hidayattullah (23091397069)
+- Andhika Abdillah Prasetyo(23091397046)
 
 ## Lisensi
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
