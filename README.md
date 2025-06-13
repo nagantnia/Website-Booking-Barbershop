@@ -12,10 +12,9 @@ Website Booking Barbershop adalah aplikasi berbasis web yang dikembangkan menggu
 - Riwayat transaksi
 
 ## Teknologi yang Digunakan
-- Laravel 10
+- Laravel 12
 - PHP 8.1
 - MySQL
-- Bootstrap 5
 - JavaScript/jQuery
 - HTML5/CSS3
 
