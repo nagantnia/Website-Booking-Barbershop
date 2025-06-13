@@ -13,7 +13,7 @@ class RegisterController extends Controller
 {
     public function showRegistrationForm()
     {
-        return view('auth.register'); // Pastikan Anda memiliki file Blade ini
+        return view('auth.register');
     }
 
     public function register(Request $request)
