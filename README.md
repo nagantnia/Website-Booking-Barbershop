@@ -56,20 +56,103 @@ php artisan key:generate
 php artisan migrate
 ```
 
-7. Install dependensi JavaScript
+6. Jalankan migrasi database
+```bash
+php artisan migrate
+```
+
+7. Setup Storage:
+```bash
+# Buat symbolic link dari public/storage ke storage/app/public
+php artisan storage:link
+
+# Buat folder-folder berikut di storage/app/public:
+mkdir storage/app/public/uploads
+mkdir storage/app/public/uploads/barbers
+mkdir storage/app/public/uploads/collections
+mkdir storage/app/public/uploads/services
+```
+
+8. Copy Assets Default:
+- Buat folder baru bernama 'default_assets' di root project
+- Copy semua gambar ke folder yang sesuai:
+  ```
+  default_assets/
+  ├── barbers/
+  │   ├── barbers-684856a32a86c.jpeg
+  │   ├── barbers-684856ef11411.jpeg
+  │   └── ...
+  ├── collections/
+  │   ├── collections-68485776c652f.jpeg
+  │   ├── collections-684857a44cc2d.jpeg
+  │   └── ...
+  └── services/
+      └── ...
+  ```
+- Copy semua gambar ke folder storage yang sesuai:
+  ```bash
+  # Windows
+  xcopy "default_assets\barbers\*" "storage\app\public\uploads\barbers\" /E /I /Y
+  xcopy "default_assets\collections\*" "storage\app\public\uploads\collections\" /E /I /Y
+  xcopy "default_assets\services\*" "storage\app\public\uploads\services\" /E /I /Y
+  ```
+
+9. Verifikasi Permissions:
+- Pastikan folder storage dan semua subfolder memiliki permission yang benar
+- Untuk Windows, pastikan folder dapat diakses untuk read/write
+
+10. Verifikasi Assets:
+- Buka browser dan akses: http://127.0.0.1:8000/storage/uploads/barbers/
+- Seharusnya Anda dapat melihat gambar-gambar barber
+- Lakukan hal yang sama untuk collections dan services
+
+11. Install dependensi JavaScript
 ```bash
 npm install
 ```
 
-8. Compile asset
+12. Compile asset
 ```bash
 npm run dev
 ```
 
-9. Jalankan server
+13. Jalankan server
 ```bash
 php artisan serve
 ```
+
+## Troubleshooting Assets
+
+### Gambar Tidak Muncul
+1. Periksa symbolic link:
+```bash
+ls -l public/storage
+```
+
+2. Jika symbolic link rusak, hapus dan buat ulang:
+```bash
+rm public/storage
+php artisan storage:link
+```
+
+3. Periksa permissions folder:
+```bash
+# Windows
+icacls "storage" /T
+```
+
+4. Periksa path gambar di database:
+- Path harus relatif ke storage/app/public
+- Contoh path yang benar: uploads/barbers/nama-file.jpg
+
+### Pesan Error "File Not Found"
+1. Periksa keberadaan file:
+```bash
+dir storage\app\public\uploads\barbers
+```
+
+2. Periksa URL yang diakses di browser:
+- URL yang benar: http://127.0.0.1:8000/storage/uploads/barbers/nama-file.jpg
 
 ## Struktur Database
 Database terdiri dari beberapa tabel utama:
